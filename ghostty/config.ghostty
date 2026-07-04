@@ -1,0 +1,8 @@
+font-family = "JetBrainsMono NF Medium"
+font-size = 12.0
+
+background = #1c1c1c
+foreground = #FEFEFE
+
+window-padding-x = 8
+window-padding-y = 8
