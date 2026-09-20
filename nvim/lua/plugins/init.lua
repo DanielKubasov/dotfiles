@@ -1,4 +1,15 @@
 return {
+  -- Golang language server protocol
+
+  {
+    "williambowman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "gopls",
+      },
+    },
+  },
+
   {
     "stevearc/conform.nvim",
     -- event = 'BufWritePre', -- uncomment for format on save
