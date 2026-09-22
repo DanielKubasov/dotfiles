@@ -9,14 +9,36 @@ vim.lsp.config("gopls", {
       analyses = {
         unusedparams = true,
         shadow = true,
+        nilness = true,
+        unusedwrite = true,
       },
       staticcheck = true,
       usePlaceholders = true,
       completeUnimported = true,
+      hints = {
+        assignVariableTypes = true,
+        compositeLiteralFields = true,
+        compositeLiteralTypes = true,
+        constantValues = true,
+        functionTypeParameters = true,
+        parameterNames = true,
+        rangeVariableTypes = true,
+      },
     },
   },
 })
 
 vim.lsp.enable(servers)
 
--- read :h vim.lsp.config for changing options of lsp servers 
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = augroup,
+  pattern = "*.go",
+  callback = function()
+    vim.lsp.buf.format({
+      async = false,
+      timeout_ms = 5000,
+    })
+  end,
+})

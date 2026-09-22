@@ -1,5 +1,5 @@
 return {
-  { "mason-org/mason.nvim" },
+  { "mason-org/mason.nvim", opts = {} },
   {
     "mason-org/mason-lspconfig.nvim",
     dependencies = {
@@ -11,13 +11,6 @@ return {
         "gopls",
       },
     },
-  },
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    ft = "go",
-    opts = function()
-      return require "custom.configs.null-ls"
-    end,
   },
   {
     "stevearc/conform.nvim",
