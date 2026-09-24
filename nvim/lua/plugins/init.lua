@@ -1,25 +1,9 @@
 return {
-  { "mason-org/mason.nvim", opts = {} },
-  {
-    "mason-org/mason-lspconfig.nvim",
-    dependencies = {
-      "mason-org/mason.nvim",
-      "neovim/nvim-lspconfig",
-    },
-    opts = {
-      ensure_installed = {
-        "gopls",
-      },
-    },
-  },
-  {
-    "stevearc/conform.nvim",
-    opts = require "configs.conform",
-  },
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      require "configs.lspconfig"
-    end,
-  },
+  require("plugins.conform"),
+  require("plugins.gopher"),
+  require("plugins.mason"),
+  require("plugins.mason-lspconfig"),
+  require("plugins.nvim-lspconfig"),
+  require("plugins.nvim-treesitter"),
+  require("plugins.nvim-tree"),
 }
